@@ -20,6 +20,12 @@
     echo    "<head> <meta charset='utf-8'> <title> Loja de F1 </title></head>";
     echo    "<body>";
 
+    echo    "<form>";
+    echo    "Nome: <input type='text'> <br>";
+    echo    " <input type='submit'>";
+    echo    "</form>";
+    echo    "<hr>";
+
     $quant = count($filial->Lista_Produtos);
     for ($i = 0; $i < $quant; $i++)
     {
