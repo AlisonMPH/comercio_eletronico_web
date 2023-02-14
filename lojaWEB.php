@@ -20,8 +20,9 @@
     echo    "<head> <meta charset='utf-8'> <title> MPH </title></head>";
     echo    "<body>";
 
-    echo    "<form>";
-    echo    "Nome: <input type='text'> <br>";
+    echo    "<form action='lojaWEB.php'>";
+    echo    "Nome: <input id='id_Nome' name='nm_Nome' type='text'> <br>";
+    echo    "Preço: <input id='id_Preco' name='nm_Preco' type='text'> <br>";
     echo    " <input type='submit'>";
     echo    "</form>";
     echo    "<hr>";
