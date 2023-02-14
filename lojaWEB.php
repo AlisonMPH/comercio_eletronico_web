@@ -20,13 +20,20 @@
     echo    "<head> <meta charset='utf-8'> <title> MPH </title></head>";
     echo    "<body>";
 
-    echo    "<form action='lojaWEB.php'>";
-    echo    "Nome: <input id='id_Nome' name='nm_Nome' type='text'> <br>";
+    echo    "<form action='lojaWEB.php'>"; //No formulario temos que colocar a acao indicando qual arquivo fara o processamento dos dados. preferencialmente o mesmo arquivo que mostra o formulario
+    echo    "Nome: <input id='id_Nome' name='nm_Nome' type='text'> <br>"; // Os campos input devem ter a propriedade name definindo os campos do formulario. Esses valores serao enviados para o servidor, na variavel $_GET
     echo    "Preço: <input id='id_Preco' name='nm_Preco' type='text'> <br>";
-    echo    " <input type='submit'>";
+    echo    "<input type='submit'>";
     echo    "</form>";
+    
     echo    "<hr>";
+    
+    print_r($_GET); echo    "<br>";
+    echo    "Nome: ".$_GET["nm_Nome"]."<br>";
+    echo    "Preço: ".$_GET["nm_Preco"]."<br>";
 
+    echo    "<hr>";
+    
     $quant = count($filial->Lista_Produtos);
     for ($i = 0; $i < $quant; $i++)
     {
