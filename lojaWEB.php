@@ -23,6 +23,12 @@
     echo    "<form action='lojaWEB.php'>"; //No formulario temos que colocar a acao indicando qual arquivo fara o processamento dos dados. preferencialmente o mesmo arquivo que mostra o formulario
     echo    "Nome: <input id='id_Nome' name='nm_Nome' type='text'> <br>"; // Os campos input devem ter a propriedade name definindo os campos do formulario. Esses valores serao enviados para o servidor, na variavel $_GET
     echo    "Preço: <input id='id_Preco' name='nm_Preco' type='text'> <br>";
+    echo    "Fabricante: <input id='id_Fabricante' name='nm_Fabricante' type='text'> <br>";
+    echo    "Processador: <input id='id_Processador' name='nm_Processador' type='text'> <br>";
+    echo    "Memoria: <input id='id_Memoria' name='nm_Memoria' type='text'> <br>";
+    echo    "Ram: <input id='id_Ram' name='nm_Ram' type='text'> <br>";
+
+
     echo    "<input type='submit'>";
     echo    "</form>";
     
@@ -31,6 +37,11 @@
     print_r($_GET); echo    "<br>";
     echo    "Nome: ".$_GET["nm_Nome"]."<br>";
     echo    "Preço: ".$_GET["nm_Preco"]."<br>";
+    echo    "Fabricante: ".$_GET["nm_Fabricante"]."<br>";
+    echo    "Processador: ".$_GET["nm_Processador"]."<br>";
+    echo    "Memoria: ".$_GET["nm_Memoria"]."<br>";
+    echo    "Ram: ".$_GET["nm_Ram"]."<br>";
+
 
     echo    "<hr>";
     
