@@ -34,7 +34,18 @@
     }
     function Insere_Dados ($p_Conexao_BD)
     {
-
+        $NOME = '';
+        $PRECO = '';
+        $QUANTIDADE = '';
+        $FABRICANTE = '';
+        $MODELO = '';
+        $CATEGORIA = '';
+        
+        $sql = "INSER INTO PRODUTO (NOME,PRECO,QUANTIDADE,FABRICANTE,MODELO,CATEGORIA) VALUES (?,?,?,?,?,?);";
+        
+        $comando = $p_Conexao_BD->prepare($sql);
+        $comando->bind_param("sdisss", $NOME, $PRECO, $QUANTIDADE, $FABRICANTE, $MODELO, $CATEGORIA);
+        $comando->execute();
     }
 
 ?>
