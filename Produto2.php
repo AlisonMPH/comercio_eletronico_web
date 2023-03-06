@@ -13,7 +13,7 @@
     {
         if ( count($_POST) > 0 )
         {
-        Insere_Dados($BD);
+        //Insere_Dados($BD);
         }
             $formulario = Exibe_Formulario();
             $consulta = Consulta_Dados($BD);
@@ -43,14 +43,21 @@
     }
     function Insere_Dados ($p_Conexao_BD)
     {
-        $NOME = '';
-        $PRECO = '';
-        $QUANTIDADE = '';
-        $FABRICANTE = '';
-        $MODELO = '';
-        $CATEGORIA = '';
-        
+        $NOME = $_POST["NOME"];
+        $PRECO = $_POST["PRECO"];
+        $QUANTIDADE = $_POST["QUANTIDADE"];
+        $FABRICANTE = $_POST["FABRICANTE"];
+        $MODELO = $_POST["MODELO"];
+        $CATEGORIA = $_POST["CATEGORIA"];
         $sql = "INSER INTO PRODUTO (NOME,PRECO,QUANTIDADE,FABRICANTE,MODELO,CATEGORIA) VALUES (?,?,?,?,?,?);";
+        
+        echo "prepare()<br>";
+        try {
+            if ($p_Conexao_BD && method_exists($p_Conexao_BD,"prepare"))
+            {$comando = $p_Conexao_BD->prepare($sql);}
+        }
+        catch(exception $e) {print_r($e); die();
+        }
         
         $comando = $p_Conexao_BD->prepare($sql);
         $comando->bind_param("sdisss", $NOME, $PRECO, $QUANTIDADE, $FABRICANTE, $MODELO, $CATEGORIA);
@@ -62,12 +69,12 @@
         $form = "";
         $form .= "<form action='Produto2.php' method='post'>";
 
-        $form .= "Nome: <input type='text' name='Nome'> <br>";
-        $form .= "Preço: <input type='text' name='Preco'> <br>";
-        $form .= "Quantidade: <textarea name='Quantidade' rows='5' cols='40'> </textarea><br>";
-        $form .= "Fabricante: <input type='text' name='Fabricante'> <br>";
-        $form .= "Modelo: <input type='text' name='Modelo'> <br>";
-        $form .= "Categoria: <select>
+        $form .= "Nome: <input type='text' name='NOME'> <br>";
+        $form .= "Preço: <input type='text' name='PRECO'> <br>";
+        $form .= "Quantidade: <textarea name='QUANTIDADE' rows='5' cols='40'> </textarea><br>";
+        $form .= "Fabricante: <input type='text' name='FABRICANTE'> <br>";
+        $form .= "Modelo: <input type='text' name='MODELO'> <br>";
+        $form .= "CATEGORIA: <select>
             <option>Placa de Video</option>
             <option>Notebook</option>
             <option>Rede</option>
