@@ -8,7 +8,7 @@
  {
  $html = "";
  $html .= "<!doctype html> <html>";
- $html .= "<head><meta charset='utf-8'><title>MPH Eletronicos</title></head>";
+ $html .= "<head><meta charset='utf-8'><title>MPH Eletronicos</title><link rel='stylesheet' href='style.css'></head>";
  $html .= "<body>" . $p_Conteudo . "</body>";
  $html .= "</html>";
 

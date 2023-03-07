@@ -66,12 +66,20 @@
 
     function Exibe_Formulario()
     {
+        echo"<center>
+        <a href='Cad_Produto.html'> <img src='img\produtos.png' width=50 height=30> </a>
+        <a href='Loja.html'> <img src='img\loja.png' width=50 height=30></a>
+        <a href='Carrinho.html'> <img src='img\carrinho.png' width=50 height=30> </a>
+        <a href='Cliente.html'> <img src='img\cliente.png' width=50 height=30> </a>
+        <a href='Produto2.php'> Cadastrar Produtos </a>
+        </center><br>";
+
         $form = "";
         $form .= "<form action='Produto2.php' method='post'>";
 
         $form .= "Nome: <input type='text' name='NOME'> <br>";
         $form .= "Preço: <input type='text' name='PRECO'> <br>";
-        $form .= "Quantidade: <textarea name='QUANTIDADE' rows='5' cols='40'> </textarea><br>";
+        $form .= "Quantidade: <input type='text' name='QUANTIDADE'> <br>";
         $form .= "Fabricante: <input type='text' name='FABRICANTE'> <br>";
         $form .= "Modelo: <input type='text' name='MODELO'> <br>";
         $form .= "CATEGORIA: <select>
