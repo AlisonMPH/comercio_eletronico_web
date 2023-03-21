@@ -49,7 +49,7 @@
         $FABRICANTE = $_POST["FABRICANTE"];
         $MODELO = $_POST["MODELO"];
         $CATEGORIA = $_POST["CATEGORIA"];
-        $sql = "INSER INTO PRODUTO (NOME,PRECO,QUANTIDADE,FABRICANTE,MODELO,CATEGORIA) VALUES (?,?,?,?,?,?);";
+        $sql = "INSERT INTO PRODUTO (NOME,PRECO,QUANTIDADE,FABRICANTE,MODELO,CATEGORIA) VALUES (?,?,?,?,?,?);";
         
         echo "prepare()<br>";
         try {
