@@ -13,7 +13,7 @@
     {
         if ( count($_POST) > 0 )
         {
-        //Insere_Dados($BD);
+        Insere_Dados($BD);
         }
             $formulario = Exibe_Formulario();
             $consulta = Consulta_Dados($BD);
