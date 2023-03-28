@@ -34,4 +34,4 @@ function Cookies()
 
 setcookie("funcao", "Cookies");
 
-?
+?>

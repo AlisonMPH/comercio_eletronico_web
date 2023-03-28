@@ -1,12 +1,15 @@
-
 <?php
 
-    session_name("lojaRMS");
+    include "cockies.php";
+    include "controle_sessao.php";
+
+    session_name("MPH");
     session_start();
 
-    $bd = connectBD()
+    $bd = connectBD();
     
-    updateSessionWorkingTime( $bd, session_id() ) 
+    updateSessionWorkingTime( $bd, session_id() );
 
-    mysqli_close($br);
-?
+    mysqli_close($bd);
+
+?>

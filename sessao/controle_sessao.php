@@ -1,9 +1,8 @@
-
 <?php
 
     session_name("MPH");
     session_start();
-    
+
 	function connectBD()
 	{
         $host = "localhost";
@@ -27,7 +26,7 @@
 	}
 
 	function updateSessionWorkingTime($bd,$sessionId) {
-		global $mysqli;
+		//global $mysqli;
 		
 		$currentTime = date('Y-m-d H:i:s');
 		
@@ -42,7 +41,7 @@
 		
 		$currentTime = date('Y-m-d H:i:s');
 		
-		$stmt = $mysqli->prepare("UPDATE Sessao SET S_Logout = ? WHERE S_SID = ?");
+		$stmt = $mysqli->prepare("UPDATE SESSAO SET S_Logout = ? WHERE S_SID = ?");
 		$stmt->bind_param("ss", $currentTime, $sessionId);
 		$stmt->execute();
 		$stmt->close();
@@ -112,7 +111,7 @@
     
     function getSession()
     {
-        $sessao = "<pre>$_SESSION: <br>";
+        $sessao = "<pre> $_SESSION: <br>";
         $sessao .= print_r($_SESSION);
         $sessao .= "</pre>";
         return $sessao;

@@ -9,7 +9,7 @@
         $_SESSION["SID"] = session_id();
     }
     
-    if ( true ) { $_SESSION["LOGIN"] = "rmagalhaess"; }
+    if ( true ) { $_SESSION["LOGIN"] = "alison"; }
 
     echo "<pre> Sessão:";
     print_r($_SESSION);
