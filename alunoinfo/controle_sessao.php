@@ -3,7 +3,7 @@
     // O primeiro passo é definir e iniciar a Sessão, para ter o controle do funcionamento da aplicação    
     // #########################
     // 1º) Programa:
-        session_name("RMS-Ifes");
+        session_name("MPH");
         session_start();
         
     // #########################
@@ -208,4 +208,4 @@
             return $sessao;
         }
 
-?
+?>
