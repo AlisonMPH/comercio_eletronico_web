@@ -25,7 +25,14 @@
         //$login = Cliente_XP();
 
         $conteudo = "Página de cadastro de produtos";
-
+        // A variavel $_POST tem conteudo quando os campos de um formulario
+        // são preenchidos
+        if ( count($_POST) > 0)
+        {
+            //$conteudo .= print_r($_POST,true);
+            $BD = Conectar();
+            Insere_Dados($BD);
+        }
         $conteudo .= Exibe_Formulario();
         
         echo Monta_Doc_HTML( basename(__FILE__), $conteudo );

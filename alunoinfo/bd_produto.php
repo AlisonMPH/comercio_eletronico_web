@@ -21,7 +21,7 @@
     function Exibe_Formulario()
     {
         $form = "";
-        $form .= "<form action='bd_produto.php' method='post'>";
+        $form .= "<form action='cad_produto.php' method='post'>";
 
         $form .= "Nome: <input type='text' name='Nome'> <br>";
         $form .= "Descrição: <textarea name='Descricao' rows='5' cols='40'> </textarea><br>";
@@ -62,17 +62,16 @@
     {
         //$XP = 2;
         $Nome = $_POST["Nome"];
-        $Codigo = $_POST["Codigo"];
         $Descricao = $_POST["Descricao"];
         $Preco = $_POST["Preco"];
-        $sql = "insert into Produto (P_Nome, P_Preco ) values ( ?, ? );";
+        $sql = "insert into Produto (P_Nome, P_Descricao, P_Preco ) values ( ?, ?, ? );";
 
-        $p_Conexao_BD->prepare( $sql );
+        $comando = $p_Conexao_BD->prepare( $sql );
 		// O método "prepare()" literalmente prepara o comando INSERT para receber parâmetros
 		// os sinais "?" representam os valores (que estão nas variáveis) e serão inseridos
         
-        echo "bind()<br>";
-	    //$comando->bind_param("sd", $Nome, $Preco);
+        //echo "bind()<br>";
+	    $comando->bind_param("ssd", $Nome, $Descricao, $Preco);
 		// O método "bind_param()" faz a "transferência" dos valores nas variáveis para o
 		// comando que será executado.
 		// O primeiro parâmetro representa os tipos dos valores nas variáveis:
@@ -80,8 +79,8 @@
 		// "s": string
 		// "d": double, float e decimal(n,m)
         
-        echo "execute()<br>";
-	    //$comando->execute(); // executa o comando, com as variáveis transferidas
+        //echo "execute()<br>";
+	    $comando->execute(); // executa o comando, com as variáveis transferidas
 
     }
 	
