@@ -30,4 +30,4 @@
 
         echo Monta_Doc_HTML("Parabéns, você tem paciência para usar o CDMon...");
 
-?
+?>

@@ -25,7 +25,7 @@
             $html = "";
             $html .= "<!doctype html> <html>";
             $html .= "<head>";
-            $html .= "<meta charset='utf-8'><title>Loja de Carros F1</title>";
+            $html .= "<meta charset='utf-8'><title>MPH</title>";
             $html .= "<style>";
             $html .= ".conteudo { vertical-align: top; padding: 5px; margin: 5px; border: 3px ridge gray; } ";
             $html .= ".esq { width: 620px; } .dir { width: 1200px; } ";
@@ -71,4 +71,4 @@
             return $menu;            
         }
 
-?
+?>

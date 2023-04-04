@@ -55,4 +55,4 @@
     }
     Cookie_Definir("Biscoito", "Água-e-Sal");
 
-?
+?>

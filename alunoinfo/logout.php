@@ -26,4 +26,4 @@
 
         echo Monta_Doc_HTML("Adeus FULANO, você passou pelo teste de paciência do CDMon...");
 
-?
+?>

@@ -7,10 +7,10 @@
         
         // O primeiro arquivo incluído será SEMPRE o controle de Sessão:
         //include_once "controle_sessao.php";
-        /Sessao_Arquivo(basename(__FILE__));
+        //Sessao_Arquivo(basename(__FILE__));
 
-        /// O segundo arquivo incluído será SEMPRE o controle do Banco de Dados:
-        /include_once "controle_bd.php";
+        // O segundo arquivo incluído será SEMPRE o controle do Banco de Dados:
+        //include_once "controle_bd.php";
         //Sessao_Incluir_Arquivo( "controle_bd.php" );
         
         // Os próximos arquivos virão em ordem de "necessidade"
@@ -66,4 +66,4 @@
             return $boas;
         }
 
-?
+?>
