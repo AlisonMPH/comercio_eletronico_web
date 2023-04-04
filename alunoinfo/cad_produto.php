@@ -6,10 +6,7 @@
         
         // O primeiro arquivo incluído será SEMPRE o controle de Sessão:
         include_once "controle_sessao.php";
-        
-        // registra o arquivo atual
-        $funcao = "";
-        $funcao = "Sessao_Arquivo"; if ( ! function_exists($funcao) ) { die("XX - A função: ".$funcao." não existe !?"); } $funcao(basename(__FILE__)); 
+        $f = "Sessao_Arquivo"; $a = basename(__FILE__); if ( ! function_exists($f) ) { die("XX - '".$a."' não possui: '".$f."()' !?"); } $f($a); 
 
         // O segundo arquivo incluído será SEMPRE o controle do Banco de Dados:
         //include_once "controle_bd.php";
@@ -19,18 +16,22 @@
         //include_once "doc_html.php";
         Sessao_Incluir_Arquivo( "doc_html.php" );
         
-        include_once "bd_produto.php";
-        
-        //include_once "cliente.php";
-  
+        Sessao_Incluir_Arquivo( "bd_produto.php" );
+
     // ##################
     // 2º) Programa:
 
-        $BD = BD_Conectar();
+        // Cliente faz login >> SE FOR NECESSÁRIO <<, e retorna a Xave Primária:
+        //$login = Cliente_XP();
+
+        $conteudo = "Página de cadastro de produtos";
+
+        $conteudo .= Exibe_Formulario();
         
-        $listagem = "";
-        $listagem = Consulta_Dados( $BD );
-        
-        echo Monta_Doc_HTML( basename(__FILE__), $listagem );
+        echo Monta_Doc_HTML( basename(__FILE__), $conteudo );
+
+
+    // #########################
+    // 3º) Funções:
 
 ?>

@@ -1,19 +1,16 @@
+
 <?php
     // O primeiro passo é definir e iniciar a Sessão, para ter o controle do funcionamento da aplicação    
     // #########################
     // 1º) Programa:
-        session_name("RMS-Ifes");
+        session_name("MPH");
         session_start();
-        
-        // registra o arquivo atual
-        $f = "Sessao_Arquivo"; $a = basename(__FILE__); if ( ! function_exists($f) ) { die("XX - '".$a."' não possui: '".$f."()' !?"); } $f($a); 
         
     // #########################
     // 2º) Arquivos externos:
         // Como este arquivo é o controle da Sessão, o "2º arquivo do projeto" é o "1º arquivo":
-        //include_once "controle_bd.php";
-        Sessao_Incluir_Arquivo( "controle_bd.php" );
-        
+        include_once "controle_bd.php";
+        //Sessao_Incluir_Arquivo( "controle_bd.php" );
         //include_once "login.php";
         //Sessao_Incluir_Arquivo( "login.php" );
 
@@ -56,17 +53,18 @@
     
         function Sessao_Arquivo( $p_Nome_Arquivo )
         {
-            //print("executando: Sessao_Arquivo( ".$p_Nome_Arquivo." )<br>");
             $_SESSION[$p_Nome_Arquivo] = ( array_key_exists($p_Nome_Arquivo, $_SESSION) ? ($_SESSION[$p_Nome_Arquivo]+1) : 1 );
         }
+        
+        Sessao_Arquivo(basename(__FILE__));
         
         // ************************************************************************************
         function Sessao_Incluir_Arquivo( $p_Arquivo )
         {
-            $TODOS = get_included_files();
-            if ( ! in_array( $p_Arquivo, $TODOS ) )
+            //$TODOS = get_included_files();
+            //if ( ! in_array( $p_Arquivo, $TODOS ) )
             {
-                include_once $p_Arquivo;
+            //    include_once $p_Arquivo;
             }
         }
 
@@ -119,10 +117,6 @@
             $comando->execute();
             $comando->close();
             BD_Desconectar( $conexao_bd );
-            
-            session_unset(); 
-            session_destroy(); 
-             
         }
 
         // ************************************************************************************
@@ -197,8 +191,10 @@
         // ************************************************************************************
         function Sessao_SESSION()
         {
-            $sessao = "_SESSION: <br>";
-                
+            $sessao = "<pre>$_SESSION: <br>";
+            
+            //////////////////////////////////////////
+            //$sessao .= print_r( ",", $_SESSION);            
             $tabela = "<table border=1><tr><th>Arquivos</th><th>Qtd Chamadas</th></tr>";
             foreach($_SESSION as $indice=>$valor) 
             {
@@ -206,7 +202,9 @@
             }
             $tabela .= "</table>";
             $sessao .= $tabela;
-
+            ///////////////////////////////////////////
+            
+            $sessao .= "</pre>";
             return $sessao;
         }
 

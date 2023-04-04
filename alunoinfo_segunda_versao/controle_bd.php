@@ -1,3 +1,4 @@
+
 <?php
     // #########################
     // 1º) Arquivos externos:
@@ -6,9 +7,7 @@
         
         // O primeiro arquivo incluído será SEMPRE o controle de Sessão:
         include_once "controle_sessao.php";
-
-        // registra o arquivo atual
-        $f = "Sessao_Arquivo"; $a = basename(__FILE__); if ( ! function_exists($f) ) { die("XX - '".$a."' não possui: '".$f."()' !?"); } $f($a); 
+        Sessao_Arquivo(basename(__FILE__));
 
         // por enquanto não precisa de outros arquivos...
 

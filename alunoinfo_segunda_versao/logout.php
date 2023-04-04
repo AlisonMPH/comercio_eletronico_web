@@ -1,3 +1,4 @@
+
 <?php
     // #########################
     // 1º) Arquivos externos:
@@ -6,28 +7,23 @@
         
         // O primeiro arquivo incluído será SEMPRE o controle de Sessão:
         include_once "controle_sessao.php";
-        $f = "Sessao_Arquivo"; $a = basename(__FILE__); if ( ! function_exists($f) ) { die("XX - '".$a."' não possui: '".$f."()' !?"); } $f($a); 
+        Sessao_Arquivo(basename(__FILE__));
 
         // O segundo arquivo incluído será SEMPRE o controle do Banco de Dados:
-        //include_once "controle_bd.php";
-        Sessao_Incluir_Arquivo( "controle_bd.php" );
+        include_once "controle_bd.php";
         
         // Os próximos arquivos virão em ordem de "necessidade"
-        //include_once "doc_html.php";
-        Sessao_Incluir_Arquivo( "doc_html.php" );
-        
-        //Sessao_Incluir_Arquivo( "cliente.php" );
+        include_once "doc_html.php";
+        include_once "cliente.php";
   
     // ##################
     // 2º) Programa:
 
         // Cliente faz login, e retorna a Xave Primária:
-        //$login = Cliente_XP();
-
-        $conteudo = "Adeus FULANO, você passou pelo teste de paciência do CDMon...";
+        $login = Cliente_XP();
         
-        echo Monta_Doc_HTML( basename(__FILE__), $conteudo );
-        
-        Sessao_Logout( basename(__FILE__), $login );
+        Sessao_Logout( $login );
 
-?>	
+        echo Monta_Doc_HTML("Adeus FULANO, você passou pelo teste de paciência do CDMon...");
+
+?>
